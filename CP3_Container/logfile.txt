@@ -1,0 +1,319 @@
+PS D:\Volker\CP3_Container> docker build -t cp3image .
+Sending build context to Docker daemon   2.56kB
+Step 1/9 : FROM ubuntu:16.04
+ ---> 52b10959e8aa
+Step 2/9 : RUN apt-get update
+ ---> Using cache
+ ---> 8b2db583d9a3
+Step 3/9 : RUN apt-get -y --force-yes install vim
+ ---> Using cache
+ ---> 185c771534f4
+Step 4/9 : RUN apt-get -y --force-yes install build-essential    cython             git                libmysqlclient-dev libhdf5-dev        libxml2-dev        libxslt1-dev       openjdk-8-jdk      default-jre             python-dev         python-pip         python-h5py        python-matplotlib  python-mysqldb     python-scipy       python-numpy       python-vigra       python-wxgtk3.0    python-zmq
+ ---> Using cache
+ ---> 7ff775126640
+Step 5/9 : RUN apt-get upgrade
+ ---> Using cache
+ ---> c733e439710f
+Step 6/9 : RUN pip install --upgrade pillow
+ ---> Running in 4de36a3fbfa4
+Collecting pillow
+  Downloading https://files.pythonhosted.org/packages/6e/27/709a8493071ec649a56d5a3194f648ec7cd792189e994bbd2ef5d285670d/Pillow-5.2.0-cp27-cp27mu-manylinux1_x86_64.whl (2.0MB)
+Installing collected packages: pillow
+  Found existing installation: Pillow 3.1.2
+    Not uninstalling pillow at /usr/lib/python2.7/dist-packages, outside environment /usr
+Successfully installed pillow-5.2.0
+You are using pip version 8.1.1, however version 18.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Removing intermediate container 4de36a3fbfa4
+ ---> 0d229395e0fb
+Step 7/9 : RUN rm -rf CellProfiler
+ ---> Running in e3db3b98e8ca
+Removing intermediate container e3db3b98e8ca
+ ---> 70a68de48880
+Step 8/9 : RUN git clone https://github.com/CellProfiler/CellProfiler.git
+ ---> Running in b29ee102df7f
+Cloning into 'CellProfiler'...
+Removing intermediate container b29ee102df7f
+ ---> e680f4a2b5ce
+Step 9/9 : RUN cd CellProfiler && pip install --editable .
+ ---> Running in 0825c63430b3
+Obtaining file:///CellProfiler
+Collecting boto3 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/d6/bc/5393e095b03e871055efae27bac7d314c7f62ab05fea098441052c2afdbb/boto3-1.8.1-py2.py3-none-any.whl (128kB)
+Collecting centrosome (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/eb/8a/318cf9ffff05c494d490dd04db77a7646a361b69ec039f23b9251c10b725/centrosome-1.0.9.tar.gz (529kB)
+Collecting docutils (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/50/09/c53398e0005b11f7ffb27b7aa720c617aba53be4fb4f4f3f06b9b5c60f28/docutils-0.14-py2-none-any.whl (543kB)
+Requirement already satisfied (use --upgrade to upgrade): h5py in /usr/lib/python2.7/dist-packages (from CellProfiler===3.1.5)
+Collecting inflect (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/82/12/af36f5420b495ad6e75f4532eaad64ee7301d0ef568a4eb87ded9bfcacb3/inflect-1.0.0-py2.py3-none-any.whl (59kB)
+Collecting javabridge (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/68/87/0b016838c2a33b46b8775a3890150c93507931127cf62e9ccf27ac20db34/javabridge-1.0.17.tar.gz (1.3MB)
+Collecting joblib (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/f6/26/317725ffd9e8e8c0eb4b2fc77614f52045ddfc1c5026387fbefef9050eec/joblib-0.12.2-py2.py3-none-any.whl (269kB)
+Collecting mahotas (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/66/12/951fe5f9787379f713dcda1598d3cca0b29a909ee8ab656514c9a2817863/mahotas-1.4.4.tar.gz (1.5MB)
+Collecting matplotlib!=2.1.0,>=2.0.0 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/59/08/04933377dc4500e3698e93f9113dc3624874e0914f4c85767ecb5b389084/matplotlib-2.2.3-cp27-cp27mu-manylinux1_x86_64.whl (12.6MB)
+Collecting mysqlclient==1.3.13 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/ec/fd/83329b9d3e14f7344d1cb31f128e6dbba70c5975c9e57896815dbb1988ad/mysqlclient-1.3.13.tar.gz (90kB)
+Requirement already satisfied (use --upgrade to upgrade): numpy in /usr/lib/python2.7/dist-packages (from CellProfiler===3.1.5)
+Collecting prokaryote==2.4.0 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/a2/52/72a8e4d9a2b065e1d725775a73cf710bd30458cfbb76e4f2553a58908ba0/prokaryote-2.4.0.tar.gz (54.8MB)
+Collecting python-bioformats==1.4.0 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/d2/5f/b74207cc249d730aba8de64a9a8786e457e5ce64416a5b3b1ccad8d9bd73/python-bioformats-1.4.0.tar.gz (30.4MB)
+Collecting pyzmq==15.3.0 (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/06/a7/b577b788e59ae988c5aba322568341e28f4fde50289751a40d630f05413f/pyzmq-15.3.0-cp27-cp27mu-manylinux1_x86_64.whl (2.8MB)
+Collecting raven (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/11/3a/b3e46b279b8bdd9eb55857d0e95044cad31732c80f628bb75e1e9e881a32/raven-6.9.0-py2.py3-none-any.whl (287kB)
+Collecting requests (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting scikit-image (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/11/c7/ee75c79dcce057a3475763d611ec044737a708eaf5cc53426b0117795ddb/scikit_image-0.14.0-cp27-cp27mu-manylinux1_x86_64.whl (25.4MB)
+Collecting scikit-learn (from CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/bc/67/370aa248f54769a56216707ad7b9af19745e85a603fafa47bde353f327fb/scikit_learn-0.19.2-cp27-cp27mu-manylinux1_x86_64.whl (5.0MB)
+Requirement already satisfied (use --upgrade to upgrade): scipy in /usr/lib/python2.7/dist-packages (from CellProfiler===3.1.5)
+Collecting botocore<1.12.0,>=1.11.1 (from boto3->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/53/fe/eb019c3d0fecc26680f025af10f3f026c33b61fda6c349de931e589ffa80/botocore-1.11.1-py2.py3-none-any.whl (4.6MB)
+Collecting s3transfer<0.2.0,>=0.1.10 (from boto3->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/d7/14/2a0004d487464d120c9fb85313a75cd3d71a7506955be458eebfe19a6b1d/s3transfer-0.1.13-py2.py3-none-any.whl (59kB)
+Collecting jmespath<1.0.0,>=0.7.1 (from boto3->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/b7/31/05c8d001f7f87f0f07289a5fc0fc3832e9a57f2dbd4d3b0fee70e0d51365/jmespath-0.9.3-py2.py3-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): pillow in /usr/local/lib/python2.7/dist-packages (from centrosome->CellProfiler===3.1.5)
+Requirement already satisfied (use --upgrade to upgrade): pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /usr/lib/python2.7/dist-packages (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+Collecting backports.functools-lru-cache (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/03/8e/2424c0e65c4a066e28f539364deee49b6451f8fcd4f718fefa50cc3dcf48/backports.functools_lru_cache-1.5-py2.py3-none-any.whl
+Collecting subprocess32 (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/c3/5f/7117737fc7114061837a4f51670d863dd7f7f9c762a6546fa8a0dcfe61c8/subprocess32-3.5.2.tar.gz (96kB)
+Requirement already satisfied (use --upgrade to upgrade): pytz in /usr/lib/python2.7/dist-packages (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+Requirement already satisfied (use --upgrade to upgrade): six>=1.10 in /usr/lib/python2.7/dist-packages (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+Requirement already satisfied (use --upgrade to upgrade): python-dateutil>=2.1 in /usr/lib/python2.7/dist-packages (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+Collecting kiwisolver>=1.0.1 (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/3a/62/a8c9bef3059d55ab38e41fe9cba4fad773bfc04e47290bab84db1c18262e/kiwisolver-1.0.1-cp27-cp27mu-manylinux1_x86_64.whl (951kB)
+Collecting cycler>=0.10 (from matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl
+Collecting future (from python-bioformats==1.4.0->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz (824kB)
+Collecting contextlib2; python_version < "3.2" (from raven->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/a2/71/8273a7eeed0aff6a854237ab5453bc9aa67deb49df4832801c21f0ff3782/contextlib2-0.5.5-py2.py3-none-any.whl
+Collecting certifi>=2017.4.17 (from requests->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/df/f7/04fee6ac349e915b82171f8e23cee63644d83663b34c539f7a09aed18f9e/certifi-2018.8.24-py2.py3-none-any.whl (147kB)
+Collecting chardet<3.1.0,>=3.0.2 (from requests->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting urllib3<1.24,>=1.21.1 (from requests->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/bd/c9/6fdd990019071a4a32a5e7cb78a1d92c53851ef4f56f62a3486e6a7d8ffb/urllib3-1.23-py2.py3-none-any.whl (133kB)
+Collecting idna<2.8,>=2.5 (from requests->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl (58kB)
+Collecting cloudpickle>=0.2.1 (from scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/3e/41/cf788c011bff0ccf651fea2014450547213a03b3535a0f1bf813bf119aaf/cloudpickle-0.5.5-py2.py3-none-any.whl
+Collecting PyWavelets>=0.4.0 (from scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/3c/84/2346f637fcdc0e89122d6356373a3ee58c27b398dc5880af60eb418a9f5f/PyWavelets-0.5.2-cp27-cp27mu-manylinux1_x86_64.whl (5.6MB)
+Collecting networkx>=1.8 (from scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/11/42/f951cc6838a4dff6ce57211c4d7f8444809ccbe2134179950301e5c4c83c/networkx-2.1.zip (1.6MB)
+Collecting dask[array]>=0.9.0 (from scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/91/52/427541141707ac533a6dcafa3bff7ff8b57ded3c9ea84d6ec014d15fbbff/dask-0.18.2-py2.py3-none-any.whl (645kB)
+Collecting futures<4.0.0,>=2.2.0; python_version == "2.6" or python_version == "2.7" (from s3transfer<0.2.0,>=0.1.10->boto3->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/2d/99/b2c4e9d5a30f6471e410a146232b4118e697fa3ffc06d6a65efde84debd0/futures-3.2.0-py2-none-any.whl
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /usr/lib/python2.7/dist-packages (from kiwisolver>=1.0.1->matplotlib!=2.1.0,>=2.0.0->CellProfiler===3.1.5)
+Collecting decorator>=4.1.0 (from networkx>=1.8->scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/bc/bb/a24838832ba35baf52f32ab1a49b906b5f82fb7c76b2f6a7e35e140bac30/decorator-4.3.0-py2.py3-none-any.whl
+Collecting toolz>=0.7.3; extra == "array" (from dask[array]>=0.9.0->scikit-image->CellProfiler===3.1.5)
+  Downloading https://files.pythonhosted.org/packages/14/d0/a73c15bbeda3d2e7b381a36afb0d9cd770a9f4adc5d1532691013ba881db/toolz-0.9.0.tar.gz (45kB)
+Building wheels for collected packages: centrosome, javabridge, mahotas, mysqlclient, prokaryote, python-bioformats, subprocess32, future, networkx, toolz
+  Running setup.py bdist_wheel for centrosome: started
+  Running setup.py bdist_wheel for centrosome: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/f5/54/fc/91ba5671d42834cebf1cb369340bb801c1d5fcb7c1803288e4
+  Running setup.py bdist_wheel for javabridge: started
+  Running setup.py bdist_wheel for javabridge: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/75/23/d2/89329e53ccb6db0660fc9b4225f0a4b7817aae18473d1b09e7
+  Running setup.py bdist_wheel for mahotas: started
+  Running setup.py bdist_wheel for mahotas: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/ca/ed/a4/e7ca81cf5a4090f5a0a9d256fa98506902e4a25fe3e46b7907
+  Running setup.py bdist_wheel for mysqlclient: started
+  Running setup.py bdist_wheel for mysqlclient: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/71/9b/6f/a8c79bceb4a35f4acf49363883f958f31b113470a3b504df87
+  Running setup.py bdist_wheel for prokaryote: started
+  Running setup.py bdist_wheel for prokaryote: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/21/48/c6/401ca2f511e720a37b023cb9dfaf9f2d8d8bc5ae2718164959
+  Running setup.py bdist_wheel for python-bioformats: started
+  Running setup.py bdist_wheel for python-bioformats: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/1b/c4/f3/ed8afa5e9cc9de670a78e3fc018d333c50b97e7d7ee9d97249
+  Running setup.py bdist_wheel for subprocess32: started
+  Running setup.py bdist_wheel for subprocess32: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/b1/a2/4d/25a65a64749cd589ffae2fdd1a7baa15a3986a8ea8af48feaf
+  Running setup.py bdist_wheel for future: started
+  Running setup.py bdist_wheel for future: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/bf/c9/a3/c538d90ef17cf7823fa51fc701a7a7a910a80f6a405bf15b1a
+  Running setup.py bdist_wheel for networkx: started
+  Running setup.py bdist_wheel for networkx: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/44/c0/34/6f98693a554301bdb405f8d65d95bbcd3e50180cbfdd98a94e
+  Running setup.py bdist_wheel for toolz: started
+  Running setup.py bdist_wheel for toolz: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/f4/0c/f6/ce6b2d1aa459ee97cc3c0f82236302bd62d89c86c700219463
+Successfully built centrosome javabridge mahotas mysqlclient prokaryote python-bioformats subprocess32 future networkx toolz
+Installing collected packages: urllib3, jmespath, docutils, botocore, futures, s3transfer, boto3, backports.functools-lru-cache, subprocess32, kiwisolver, cycler, matplotlib, cloudpickle, PyWavelets, decorator, networkx, toolz, dask, scikit-image, centrosome, inflect, javabridge, joblib, mahotas, mysqlclient, prokaryote, future, python-bioformats, pyzmq, contextlib2, raven, certifi, chardet, idna, requests, scikit-learn, CellProfiler
+  Found existing installation: cycler 0.9.0
+    Not uninstalling cycler at /usr/lib/python2.7/dist-packages, outside environment /usr
+  Found existing installation: matplotlib 1.5.1
+    Not uninstalling matplotlib at /usr/lib/python2.7/dist-packages, outside environment /usr
+  Found existing installation: decorator 4.0.6
+    Not uninstalling decorator at /usr/lib/python2.7/dist-packages, outside environment /usr
+  Found existing installation: mysqlclient 1.3.7
+    Not uninstalling mysqlclient at /usr/lib/python2.7/dist-packages, outside environment /usr
+  Found existing installation: pyzmq 15.2.0
+    Not uninstalling pyzmq at /usr/lib/python2.7/dist-packages, outside environment /usr
+  Running setup.py develop for CellProfiler
+Successfully installed CellProfiler PyWavelets-0.5.2 backports.functools-lru-cache-1.5 boto3-1.8.1 botocore-1.11.1 centrosome-1.0.9 certifi-2018.8.24 chardet-3.0.4 cloudpickle-0.5.5 contextlib2-0.5.5 cycler-0.10.0 dask-0.18.2 decorator-4.3.0 docutils-0.14 future-0.16.0 futures-3.2.0 idna-2.7 inflect-1.0.0 javabridge-1.0.17 jmespath-0.9.3 joblib-0.12.2 kiwisolver-1.0.1 mahotas-1.4.4 matplotlib-2.2.3 mysqlclient-1.3.13 networkx-2.1 prokaryote-2.4.0 python-bioformats-1.4.0 pyzmq-15.3.0 raven-6.9.0 requests-2.19.1 s3transfer-0.1.13 scikit-image-0.14.0 scikit-learn-0.19.2 subprocess32-3.5.2 toolz-0.9.0 urllib3-1.23
+You are using pip version 8.1.1, however version 18.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Removing intermediate container 0825c63430b3
+ ---> 2d6a7bd2b517
+Successfully built 2d6a7bd2b517
+Successfully tagged cp3image:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+PS D:\Volker\CP3_Container> docker run -it cp3image /bin/bash
+root@40dff4c9d809:/# which cellprofiler
+/usr/local/bin/cellprofiler
+root@40dff4c9d809:/# export DISPLAY=192.168.178.26:0
+root@40dff4c9d809:/# cellprofiler
+font search path ['/usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/fonts/ttf', '/usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/fonts/afm', '/usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/fonts/pdfcorefonts']
+generated new fontManager
+
+(cellprofiler:17): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
+
+(cellprofiler:17): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
+
+(cellprofiler:17): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
+Your pipeline was saved using an old version
+of CellProfiler (rev ).
+The current version of CellProfiler can load
+and run this pipeline, but if you make changes
+to it and save, the older version of CellProfiler
+(perhaps the version your collaborator has?) may
+not be able to load it.
+
+You can ignore this warning if you do not plan to save
+this pipeline or if you will only use it with this or
+later versions of CellProfiler.
+
+(cellprofiler:17): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
+Progress Counter({u'Unprocessed': 3})
+Starting workers on address tcp://127.0.0.1:36025
+Worker 0: Starting job
+Progress Counter({u'Unprocessed': 2, u'InProcess': 1})
+Worker 0: Doing job: 1
+Worker 0: Running module Images 1
+Worker 0: Mon Aug 27 01:40:39 2018: Image # 1, module Images # 1: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+Worker 0: Running module Metadata 2
+Worker 0: Mon Aug 27 01:40:39 2018: Image # 1, module Metadata # 2: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+Worker 0: Running module NamesAndTypes 3
+Worker 0: Exception in thread "Thread-1" org.mozilla.javascript.WrappedException: Wrapped java.lang.NullPointerException (<java-python-bridge>#8)
+Worker 0:       at org.mozilla.javascript.Context.throwAsScriptRuntimeEx(Context.java:1754)
+Worker 0:       at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:148)
+Worker 0:       at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225)
+Worker 0:       at org.mozilla.javascript.optimizer.OptRuntime.call2(OptRuntime.java:42)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__9._c_script_0(<java-python-bridge>:8)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__9.call(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394)
+Worker 0:       at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__9.call(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__9.exec(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.Context.evaluateString(Context.java:1079)
+Worker 0: Caused by: java.lang.NullPointerException
+Worker 0:       at loci.common.Location.<init>(Location.java:104)
+Worker 0:       at loci.common.Location.getParentFile(Location.java:623)
+Worker 0:       at loci.formats.in.CellVoyagerReader.isThisType(CellVoyagerReader.java:256)
+Worker 0:       at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+Worker 0:       at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+Worker 0:       at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Worker 0:       at java.lang.reflect.Method.invoke(Method.java:498)
+Worker 0:       at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126)
+Worker 0:       ... 9 more
+Worker 0: Error detected during run of module NamesAndTypes#3
+Worker 0: Traceback (most recent call last):
+Worker 0:   File "/CellProfiler/cellprofiler/pipeline.py", line 1921, in run_image_set
+Worker 0:     self.run_module(module, workspace)
+Worker 0:   File "/CellProfiler/cellprofiler/pipeline.py", line 2031, in run_module
+Worker 0:     module.run(workspace)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1755, in run
+Worker 0:     stack)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1807, in add_image_provider
+Worker 0:     series, index, channel)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1847, in add_simple_image
+Worker 0:     self.add_provider_measurements(provider, m, cellprofiler.measurement.IMAGE)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1861, in add_provider_measurements
+Worker 0:     img = provider.provide_image(m)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 2360, in provide_image
+Worker 0:     image = loadimages.LoadImagesImageProviderURL.provide_image(self, image_set)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/loadimages.py", line 3571, in provide_image
+Worker 0:     self.__set_image()
+Worker 0:   File "/CellProfiler/cellprofiler/modules/loadimages.py", line 3526, in __set_image
+Worker 0:     self.get_name(), url=self.get_url())
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/bioformats/formatreader.py", line 961, in get_image_reader
+Worker 0:     rdr = ImageReader(path=path, url=url)
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/bioformats/formatreader.py", line 668, in __init__
+Worker 0:     stream = self.stream))
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/javabridge/jutil.py", line 394, in run_script
+Worker 0:     raise JavaException(call(e.throwable, "unwrap", "()Ljava/lang/Object;"))
+Worker 0: JavaException
+
+(cellprofiler:17): Gdk-WARNING **: gdk_window_set_icon_list: icons too large
+Progress Counter({u'Unprocessed': 2, u'FinishedWaitingMeasurements': 1})
+Progress Counter({u'Unprocessed': 2, u'Done': 1})
+Worker 0: Starting job
+Progress Counter({u'Unprocessed': 1, u'Done': 1, u'InProcess': 1})
+Worker 0: Doing job: 2
+Worker 0: Running module Images 1
+Worker 0: Mon Aug 27 01:40:56 2018: Image # 2, module Images # 1: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+Worker 0: Running module Metadata 2
+Worker 0: Mon Aug 27 01:40:56 2018: Image # 2, module Metadata # 2: CPU_time = 0.00 secs, Wall_time = 0.00 secs
+Worker 0: Running module NamesAndTypes 3
+Worker 0: Exception in thread "Thread-1" org.mozilla.javascript.WrappedException: Wrapped java.lang.NullPointerException (<java-python-bridge>#8)
+Worker 0:       at org.mozilla.javascript.Context.throwAsScriptRuntimeEx(Context.java:1754)
+Worker 0:       at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:148)
+Worker 0:       at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225)
+Worker 0:       at org.mozilla.javascript.optimizer.OptRuntime.call2(OptRuntime.java:42)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__18._c_script_0(<java-python-bridge>:8)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__18.call(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394)
+Worker 0:       at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__18.call(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.gen._java_python_bridge__18.exec(<java-python-bridge>)
+Worker 0:       at org.mozilla.javascript.Context.evaluateString(Context.java:1079)
+Worker 0: Caused by: java.lang.NullPointerException
+Worker 0:       at loci.common.Location.<init>(Location.java:104)
+Worker 0:       at loci.common.Location.getParentFile(Location.java:623)
+Worker 0:       at loci.formats.in.CellVoyagerReader.isThisType(CellVoyagerReader.java:256)
+Worker 0:       at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+Worker 0:       at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+Worker 0:       at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Worker 0:       at java.lang.reflect.Method.invoke(Method.java:498)
+Worker 0:       at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126)
+Worker 0:       ... 9 more
+Worker 0: Error detected during run of module NamesAndTypes#3
+Worker 0: Traceback (most recent call last):
+Worker 0:   File "/CellProfiler/cellprofiler/pipeline.py", line 1921, in run_image_set
+Worker 0:     self.run_module(module, workspace)
+Worker 0:   File "/CellProfiler/cellprofiler/pipeline.py", line 2031, in run_module
+Worker 0:     module.run(workspace)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1755, in run
+Worker 0:     stack)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1807, in add_image_provider
+Worker 0:     series, index, channel)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1847, in add_simple_image
+Worker 0:     self.add_provider_measurements(provider, m, cellprofiler.measurement.IMAGE)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 1861, in add_provider_measurements
+Worker 0:     img = provider.provide_image(m)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/namesandtypes.py", line 2360, in provide_image
+Worker 0:     image = loadimages.LoadImagesImageProviderURL.provide_image(self, image_set)
+Worker 0:   File "/CellProfiler/cellprofiler/modules/loadimages.py", line 3571, in provide_image
+Worker 0:     self.__set_image()
+Worker 0:   File "/CellProfiler/cellprofiler/modules/loadimages.py", line 3526, in __set_image
+Worker 0:     self.get_name(), url=self.get_url())
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/bioformats/formatreader.py", line 961, in get_image_reader
+Worker 0:     rdr = ImageReader(path=path, url=url)
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/bioformats/formatreader.py", line 668, in __init__
+Worker 0:     stream = self.stream))
+Worker 0:   File "/usr/local/lib/python2.7/dist-packages/javabridge/jutil.py", line 394, in run_script
+Worker 0:     raise JavaException(call(e.throwable, "unwrap", "()Ljava/lang/Object;"))
+Worker 0: JavaException
