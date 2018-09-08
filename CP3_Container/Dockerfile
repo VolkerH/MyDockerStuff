@@ -2,7 +2,7 @@
 FROM ubuntu:16.04
 
 # Update Ubuntu Software repository
-RUN apt-get update 
+RUN apt-get -y update 
 RUN apt-get -y --force-yes install vim
 RUN apt-get -y --force-yes install \
 build-essential    \
@@ -28,4 +28,5 @@ RUN apt-get upgrade
 RUN pip install --upgrade pillow
 RUN rm -rf CellProfiler
 RUN git clone https://github.com/CellProfiler/CellProfiler.git
-RUN cd CellProfiler && pip install --editable .
+WORKDIR CellProfiler 
+RUN pip install --editable .
