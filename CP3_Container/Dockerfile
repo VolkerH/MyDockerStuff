@@ -30,3 +30,7 @@ RUN rm -rf CellProfiler
 RUN git clone https://github.com/CellProfiler/CellProfiler.git
 WORKDIR CellProfiler 
 RUN pip install --editable .
+WORKDIR /
+RUN git clone https://github.com/VolkerH/CellProfiler-plugins.git
+WORKDIR CellProfiler-plugins
+RUN pip install -r requirements.txt
