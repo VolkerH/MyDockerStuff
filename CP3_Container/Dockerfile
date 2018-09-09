@@ -27,7 +27,7 @@ python-zmq
 RUN apt-get upgrade
 RUN pip install --upgrade pillow
 RUN rm -rf CellProfiler
-RUN git clone https://github.com/CellProfiler/CellProfiler.git
+RUN git clone https://github.com/VolkerH/CellProfiler.git
 WORKDIR CellProfiler 
 RUN pip install --editable .
 WORKDIR /
