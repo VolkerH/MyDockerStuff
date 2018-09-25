@@ -43,10 +43,11 @@ HARDWARE gpu
  cd /opt/
  git clone https://github.com/VolkerH/CellProfiler.git
  cd CellProfiler
+ pip install pip==9
  git checkout master
  pip --disable-pip-version-check install --editable .
  pip install --upgrade pillow
- pip install javabridge==1.0.14
- pip install --upgrade git+https://github.com/jni/scikit-image.git@thresholds
+ #pip install javabridge==1.0.14
+ #pip install --upgrade git+https://github.com/jni/scikit-image.git@thresholds
 %runscript
     $*
