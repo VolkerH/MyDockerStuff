@@ -9,5 +9,7 @@ RUN apt-get -y  update -qqq
 
 # Want some editors as I may go into interactive shells
 RUN apt-get -y install vim
-RUN apt-get -y install emacs
+#RUN apt-get -y install emacs
 RUN apt-get -y install singularity-container
+# need this to run build recipes
+RUN apt-get -y install debootstrap
