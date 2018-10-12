@@ -1,6 +1,6 @@
 FROM nvidia/cuda:9.0-base-ubuntu16.04
 
-LABEL maintainer="Noone"
+LABEL maintainer="volker.hilsenstein@monash.edu"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
