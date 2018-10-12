@@ -13,13 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda-cusparse-dev-8-0 \
         curl \
         git \
-        libcufft8.0 \
-        libcurl3-dev \
-        libfreetype6-dev \
-        libhdf5-serial-dev \
-        libpng12-dev \
         libtiff-dev \ 
-        libX11-dev \
+        libx11-6 \
         libzmq3-dev \
         libfftw3-dev \
         libboost1.58-dev \
@@ -30,4 +25,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         zip \
         zlib1g-dev \
-        wget 
+       
