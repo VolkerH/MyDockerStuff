@@ -17,6 +17,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libx11-6 \
         libzmq3-dev \
         libfftw3-dev \
+        libboost-filesystem1.58.0\
+        libboost-filesystem1.58-dev\
+        libboost-system1.58.0\
+        libboost-system1.58-dev\
+        libboost-program-options1.58.0\
+        libboost-program-options1.58-dev\
         libboost1.58-dev \
         pkg-config \
         python-dev \
