@@ -1,0 +1,18 @@
+Bootstrap: docker
+From: debian:latest
+%labels
+MAINTAINER Volker Hilsenstein
+%post
+
+cd /
+apt-get update
+apt-get install tar
+apt-get install bzip2
+apt-get install libgomp1
+curl https://github.com/SuperElastix/elastix/releases/download/4.9.0/elastix-4.9.0-linux.tar.bz2 -o //elastix-4.9.0-linux.tar.bz2
+tar xvjf /elastix-4.9.0-linux.tar.bz2
+
+
+
+%runscript
+exec /bin/bash "$@"
