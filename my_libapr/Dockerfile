@@ -31,7 +31,9 @@ python3-matplotlib  \
 python3-scipy       \
 python-numpy       
 
-RUN pip3 install tqdm
+RUN pip3 install libtiff
+RUN pip3 install scikit-image
+RUN pip3 install ipython
 ADD installation_script.sh .
 RUN chmod 777 installation_script.sh && ./installation_script.sh
 
