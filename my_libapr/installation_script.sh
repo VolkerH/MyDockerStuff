@@ -1,5 +1,6 @@
 git clone https://github.com/VolkerH/LibAPR.git
 cd LibAPR
+git checkout develop_time
 git submodule update --init --recursive
 cd ..
 wget https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.tar.gz
