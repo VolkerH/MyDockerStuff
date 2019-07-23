@@ -4,6 +4,8 @@ FROM ubuntu:16.04
 # Update Ubuntu Software repository
 RUN apt-get -y update && apt-get -y --force-yes install vim \
 build-essential    \
+libgtk-3-dev       \
+pkg-config         \
 cython             \
 git                \
 libmysqlclient-dev \
@@ -17,18 +19,16 @@ python-pip         \
 python-h5py        \
 python-matplotlib  \
 python-mysqldb     \
-python-vigra       \
-python-wxgtk3.0    \
-python-zmq
-RUN apt-get upgrade
+python-vigra       
 RUN pip install --upgrade pip
 RUN pip install --upgrade pillow
 RUN pip install --upgrade pytest
 RUN rm -rf CellProfiler
 RUN git clone https://github.com/CellProfiler/CellProfiler.git
 WORKDIR CellProfiler 
-RUN pip install --editable .
+RUN pip install --ignore-installed --editable .
 WORKDIR /
 RUN git clone https://github.com/CellProfiler/CellProfiler-plugins.git
 WORKDIR CellProfiler-plugins
-RUN pip install -r requirements.txt
+RUN pip install --ignore-installed -r requirements.txt
+RUN pip install docutils==0.10
