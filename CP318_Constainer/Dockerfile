@@ -2,9 +2,7 @@
 FROM ubuntu:16.04
 
 # Update Ubuntu Software repository
-RUN apt-get -y update 
-RUN apt-get -y --force-yes install vim
-RUN apt-get -y --force-yes install \
+RUN apt-get -y update && apt-get -y --force-yes install vim \
 build-essential    \
 cython             \
 git                \
